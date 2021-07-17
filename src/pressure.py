@@ -21,17 +21,17 @@ class Pressure:
 		self.quit_button = Button(self.win, Point(465, 330), 45, 22, "Sair")
 		self.quit_button.activate()
 
-		self.from_Pa_button = Button(self.win, Point(125, 80), 40, 22, "Pa")
-		self.from_bar_button = Button(self.win, Point(125, 120), 40, 22, "bar")
-		self.from_atm_button = Button(self.win, Point(125, 160), 40, 22, "atm")
-		self.from_lbf_in2_button = Button(self.win, Point(125, 200), 40, 22, "lb-f/in²")
-		self.from_in_Hg_button = Button(self.win, Point(125, 240), 40, 22, "in Hg")
+		self.from_Pa_button = Button(self.win, Point(125, 80), 50, 22, "Pa")
+		self.from_bar_button = Button(self.win, Point(125, 120), 50, 22, "bar")
+		self.from_atm_button = Button(self.win, Point(125, 160), 50, 22, "atm")
+		self.from_lbf_in2_button = Button(self.win, Point(125, 200), 50, 22, "lb-f/in²")
+		self.from_in_Hg_button = Button(self.win, Point(125, 240), 50, 22, "in Hg")
 
-		self.to_Pa_button = Button(self.win, Point(375, 80), 40, 22, "Pa")
-		self.to_bar_button = Button(self.win, Point(375, 120), 40, 22, "bar")
-		self.to_atm_button = Button(self.win, Point(375, 160), 40, 22, "atm")
-		self.to_lbf_in2_button = Button(self.win, Point(375, 200), 40, 22, "lb-f/in²")
-		self.to_in_Hg_button = Button(self.win, Point(375, 240), 40, 22, "in Hg")
+		self.to_Pa_button = Button(self.win, Point(375, 80), 50, 22, "Pa")
+		self.to_bar_button = Button(self.win, Point(375, 120), 50, 22, "bar")
+		self.to_atm_button = Button(self.win, Point(375, 160), 50, 22, "atm")
+		self.to_lbf_in2_button = Button(self.win, Point(375, 200), 50, 22, "lb-f/in²")
+		self.to_in_Hg_button = Button(self.win, Point(375, 240), 50, 22, "in Hg")
 
 		self.from_Pa_button.activate()
 		self.from_bar_button.activate()
@@ -85,6 +85,9 @@ class Pressure:
 						other_buttons = [x for x in self.to_buttons if x != button]
 						for other_bt in other_buttons:
 							other_bt.deactivate()
+			elif self.quit_button.clicked(click):
+				self.win.close()
+				return None
 			if len(chosen_buttons) == 2:
 				break
 
@@ -250,6 +253,6 @@ class Pressure:
 		return new_value
 
 	def present_result(self, result):
-		self.result = Text(Point(250, 190), "%5f" % result)
+		self.result = Text(Point(250, 190), "%.5f" % result)
 		self.result.setSize(10)
 		self.result.draw(self.win)

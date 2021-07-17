@@ -85,6 +85,9 @@ class Volume:
 						other_buttons = [x for x in self.to_buttons if x != button]
 						for other_bt in other_buttons:
 							other_bt.deactivate()
+			elif self.quit_button.clicked(click):
+				self.win.close()
+				return None
 			if len(chosen_buttons) == 2:
 				break
 
@@ -250,6 +253,6 @@ class Volume:
 		return new_value
 
 	def present_result(self, result):
-		self.result = Text(Point(250, 190), "%5f" % result)
+		self.result = Text(Point(250, 190), "%.5f" % result)
 		self.result.setSize(10)
 		self.result.draw(self.win)

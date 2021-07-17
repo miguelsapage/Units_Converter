@@ -15,6 +15,8 @@ from pressure import Pressure
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
 	while True:
+		if chosen_buttons == None:
+			break
 		interaction = unit.interact()
 		if interaction == "convert_button":
 			new_value = unit.convert(chosen_buttons)
