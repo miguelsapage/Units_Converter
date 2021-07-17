@@ -18,7 +18,7 @@ class Mass:
 		self.convert_button.activate()
 		self.clean_button = Button(self.win, Point(250, 285), 75, 22, "Limpar")
 		self.clean_button.activate()
-		self.quit_button = Button(self.win, Point(450, 330), 60, 22, "Sair")
+		self.quit_button = Button(self.win, Point(465, 330), 45, 22, "Sair")
 		self.quit_button.activate()
 
 		self.from_kg_button = Button(self.win, Point(125, 80), 40, 22, "kg")
@@ -106,6 +106,8 @@ class Mass:
 				new_value = self.kg_to_oz()
 			elif chosen_buttons[1] == self.to_c_button:
 				new_value = self.kg_to_c()
+			else:
+				new_value = self.get_value()
 		elif chosen_buttons[0] == self.from_lb_button:
 			if chosen_buttons[1] == self.to_kg_button:
 				new_value = self.lb_to_kg()
@@ -117,6 +119,8 @@ class Mass:
 				new_value = self.lb_to_oz()
 			elif chosen_buttons[1] == self.to_c_button:
 				new_value = self.lb_to_c()
+			else:
+				new_value = self.get_value()
 		elif chosen_buttons[0] == self.from_slug_button:
 			if chosen_buttons[1] == self.to_kg_button:
 				new_value = self.slug_to_kg()
@@ -128,6 +132,8 @@ class Mass:
 				new_value = self.slug_to_oz()
 			elif chosen_buttons[1] == self.to_c_button:
 				new_value = self.slug_to_c()
+			else:
+				new_value = self.get_value()
 		elif chosen_buttons[0] == self.from_st_button:
 			if chosen_buttons[1] == self.to_kg_button:
 				new_value = self.st_to_kg()
@@ -139,6 +145,8 @@ class Mass:
 				new_value = self.st_to_oz()
 			elif chosen_buttons[1] == self.to_c_button:
 				new_value = self.st_to_c()
+			else:
+				new_value = self.get_value()
 		elif chosen_buttons[0] == self.from_oz_button:
 			if chosen_buttons[1] == self.to_kg_button:
 				new_value = self.oz_to_kg()
@@ -150,6 +158,8 @@ class Mass:
 				new_value = self.oz_to_lb()
 			elif chosen_buttons[1] == self.to_c_button:
 				new_value = self.oz_to_c()
+			else:
+				new_value = self.get_value()
 		elif chosen_buttons[0] == self.from_c_button:
 			if chosen_buttons[1] == self.to_kg_button:
 				new_value = self.c_to_kg()
@@ -161,6 +171,8 @@ class Mass:
 				new_value = self.c_to_oz()
 			elif chosen_buttons[1] == self.to_lb_button:
 				new_value = self.c_to_lb()
+			else:
+				new_value = self.get_value()
 
 		return new_value
 
