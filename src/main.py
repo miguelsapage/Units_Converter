@@ -8,6 +8,7 @@ Desempenho - 2020/201
 from graphics import *
 from button import Button
 from mass import Mass
+from volume import Volume
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -42,6 +43,7 @@ def main():
 	lenght_button = Button(win, Point(375, 240), 140, 22, "Comprimento")
 	ferquency_button = Button(win, Point(125, 280), 140, 22, "Ferquência")
 	specific_mass_button = Button(win, Point(375, 280), 140, 22, "Massa Específica")
+	quit_button = Button(win, Point(465, 330), 45, 22, "Sair")
 	mass_button.activate()
 	volume_button.activate()
 	temperature_button.activate()
@@ -54,6 +56,7 @@ def main():
 	lenght_button.activate()
 	ferquency_button.activate()
 	specific_mass_button.activate()
+	quit_button.activate()
 
 	while True:
 		click = win.getMouse()
@@ -62,7 +65,8 @@ def main():
 			mass = Mass()
 			execute_chosen_conversion(mass)
 		elif volume_button.clicked(click):
-			continue
+			volume = Volume()
+			execute_chosen_conversion(volume)
 		elif temperature_button.clicked(click):
 			continue
 		elif pressure_button.clicked(click):
@@ -74,7 +78,7 @@ def main():
 		elif velocity_button.clicked(click):
 			continue
 		elif time_button.clicked(click):
-			break
+			continue
 		elif power_button.clicked(click):
 			continue
 		elif lenght_button.clicked(click):
@@ -83,6 +87,8 @@ def main():
 			continue
 		elif specific_mass_button.clicked(click):
 			continue
+		elif quit_button.clicked(click):
+			break
 
 	win.close()
 
