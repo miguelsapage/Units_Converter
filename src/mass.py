@@ -18,6 +18,8 @@ class Mass:
 		self.convert_button.activate()
 		self.clean_button = Button(self.win, Point(250, 285), 75, 22, "Limpar")
 		self.clean_button.activate()
+		self.quit_button = Button(self.win, Point(450, 330), 60, 22, "Sair")
+		self.quit_button.activate()
 
 		self.from_kg_button = Button(self.win, Point(125, 80), 40, 22, "kg")
 		self.from_lb_button = Button(self.win, Point(125, 120), 40, 22, "lb")
@@ -57,32 +59,38 @@ class Mass:
 			click = self.win.getMouse()
 			if self.convert_button.clicked(click):
 				return "convert_button"
-			if self.clean_button.clicked(click):
+			elif self.clean_button.clicked(click):
 				for button in self.from_buttons:
 					button.activate()
 				for button in self.to_buttons:
 					button.activate()
 				self.value.setText("")
-
+				self.result.undraw()
+				return "clear_button"
+			elif self.quit_button.clicked(click):
+				self.win.close()
+				return "quit_button"
 
 	def choose_conversion(self):
 		chosen_buttons = []
-
-		from_click = self.win.getMouse()
-		for button in self.from_buttons:
-			if button.clicked(from_click):
-				chosen_buttons.append(button)
-				other_buttons = [x for x in self.from_buttons if x != button]
-				for other_bt in other_buttons:
-					other_bt.deactivate()
-
-		to_click = self.win.getMouse()
-		for button in self.to_buttons:
-			if button.clicked(to_click):
-				chosen_buttons.append(button)
-				other_buttons = [x for x in self.to_buttons if x != button]
-				for other_bt in other_buttons:
-					other_bt.deactivate()
+		while True:
+			click = self.win.getMouse()
+			if any([x.clicked(click) for x in self.from_buttons]):
+				for button in self.from_buttons:
+					if button.clicked(click):
+						chosen_buttons.append(button)
+						other_buttons = [x for x in self.from_buttons if x != button]
+						for other_bt in other_buttons:
+							other_bt.deactivate()
+			elif any([x.clicked(click) for x in self.to_buttons]):
+				for button in self.to_buttons:
+					if button.clicked(click):
+						chosen_buttons.append(button)
+						other_buttons = [x for x in self.to_buttons if x != button]
+						for other_bt in other_buttons:
+							other_bt.deactivate()
+			if len(chosen_buttons) == 2:
+				break
 
 		return chosen_buttons
 
@@ -307,6 +315,6 @@ class Mass:
 		return new_value
 
 	def present_result(self, result):
-		result = Text(Point(250, 190), "%5f" % result)
-		result.setSize(10)
-		result.draw(self.win)
+		self.result = Text(Point(250, 190), "%5f" % result)
+		self.result.setSize(10)
+		self.result.draw(self.win)

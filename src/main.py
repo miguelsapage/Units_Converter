@@ -9,6 +9,19 @@ from graphics import *
 from button import Button
 from mass import Mass
 
+def execute_chosen_conversion(unit):
+	chosen_buttons = unit.choose_conversion()
+	while True:
+		interaction = unit.interact()
+		if interaction == "convert_button":
+			new_value = unit.convert(chosen_buttons)
+			result = unit.present_result(new_value)
+		elif interaction == "clear_button":
+			execute_chosen_conversion(unit)
+			break
+		elif interaction == "quit_button":
+			break
+
 def main():
 
 	win = GraphWin("Conversor de Unidades", 500, 350)
@@ -47,10 +60,7 @@ def main():
 
 		if mass_button.clicked(click):
 			mass = Mass()
-			chosen_buttons = mass.choose_conversion()
-			if mass.interact() == "convert_button":
-				new_value = mass.convert(chosen_buttons)
-				mass.present_result(new_value)
+			execute_chosen_conversion(mass)
 		elif volume_button.clicked(click):
 			continue
 		elif temperature_button.clicked(click):
