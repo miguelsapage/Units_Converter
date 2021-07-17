@@ -10,6 +10,7 @@ from button import Button
 from mass import Mass
 from volume import Volume
 from temperature import Temperature
+from pressure import Pressure
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -72,7 +73,8 @@ def main():
 			temperature = Temperature()
 			execute_chosen_conversion(temperature)
 		elif pressure_button.clicked(click):
-			continue
+			pressure = Pressure()
+			execute_chosen_conversion(pressure)
 		elif energy_button.clicked(click):
 			continue
 		elif force_button.clicked(click):
