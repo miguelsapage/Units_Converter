@@ -7,6 +7,7 @@ Desempenho - 2020/201
 
 from graphics import *
 from button import Button
+from mass import Mass
 
 def main():
 
@@ -41,7 +42,38 @@ def main():
 	ferquency_button.activate()
 	specific_mass_button.activate()
 
-	win.getMouse()
+	while True:
+		click = win.getMouse()
+
+		if mass_button.clicked(click):
+			mass = Mass()
+			chosen_buttons = mass.choose_conversion()
+			if mass.interact() == "convert_button":
+				new_value = mass.convert(chosen_buttons)
+				mass.present_result(new_value)
+		elif volume_button.clicked(click):
+			continue
+		elif temperature_button.clicked(click):
+			continue
+		elif pressure_button.clicked(click):
+			continue
+		elif energy_button.clicked(click):
+			continue
+		elif force_button.clicked(click):
+			continue
+		elif velocity_button.clicked(click):
+			continue
+		elif time_button.clicked(click):
+			break
+		elif power_button.clicked(click):
+			continue
+		elif lenght_button.clicked(click):
+			continue
+		elif ferquency_button.clicked(click):
+			continue
+		elif specific_mass_button.clicked(click):
+			continue
+
 	win.close()
 
 main()
