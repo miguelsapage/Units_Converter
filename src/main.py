@@ -15,6 +15,7 @@ from energy import Energy
 from force import Force
 from velocity import Velocity
 from time_ import Time
+from power import Power
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -94,7 +95,8 @@ def main():
 			time = Time()
 			execute_chosen_conversion(time)
 		elif power_button.clicked(click):
-			continue
+			power = Power()
+			execute_chosen_conversion(power)
 		elif lenght_button.clicked(click):
 			continue
 		elif ferquency_button.clicked(click):
