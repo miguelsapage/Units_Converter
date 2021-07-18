@@ -14,6 +14,7 @@ from pressure import Pressure
 from energy import Energy
 from force import Force
 from velocity import Velocity
+from time_ import Time
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -90,7 +91,8 @@ def main():
 			velocity = Velocity()
 			execute_chosen_conversion(velocity)
 		elif time_button.clicked(click):
-			continue
+			time = Time()
+			execute_chosen_conversion(time)
 		elif power_button.clicked(click):
 			continue
 		elif lenght_button.clicked(click):
