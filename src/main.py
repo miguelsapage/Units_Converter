@@ -18,6 +18,7 @@ from time_ import Time
 from power import Power
 from length import Length
 from frequency import Frequency
+from especific_mass import EspecificMass
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -53,7 +54,7 @@ def main():
 	power_button = Button(win, Point(125, 240), 140, 22, "Potência")
 	lenght_button = Button(win, Point(375, 240), 140, 22, "Comprimento")
 	frequency_button = Button(win, Point(125, 280), 140, 22, "Ferquência")
-	specific_mass_button = Button(win, Point(375, 280), 140, 22, "Massa Específica")
+	especific_mass_button = Button(win, Point(375, 280), 140, 22, "Massa Eespecífica")
 	quit_button = Button(win, Point(465, 330), 45, 22, "Sair")
 	mass_button.activate()
 	volume_button.activate()
@@ -66,7 +67,7 @@ def main():
 	power_button.activate()
 	lenght_button.activate()
 	frequency_button.activate()
-	specific_mass_button.activate()
+	especific_mass_button.activate()
 	quit_button.activate()
 
 	while True:
@@ -105,8 +106,9 @@ def main():
 		elif frequency_button.clicked(click):
 			frequency = Frequency()
 			execute_chosen_conversion(frequency)
-		elif specific_mass_button.clicked(click):
-			continue
+		elif especific_mass_button.clicked(click):
+			especific_mass = EspecificMass()
+			execute_chosen_conversion(especific_mass)
 		elif quit_button.clicked(click):
 			break
 
