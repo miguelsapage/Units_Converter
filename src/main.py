@@ -16,6 +16,7 @@ from force import Force
 from velocity import Velocity
 from time_ import Time
 from power import Power
+from length import Length
 
 def execute_chosen_conversion(unit):
 	chosen_buttons = unit.choose_conversion()
@@ -98,7 +99,8 @@ def main():
 			power = Power()
 			execute_chosen_conversion(power)
 		elif lenght_button.clicked(click):
-			continue
+			length = Length()
+			execute_chosen_conversion(length)
 		elif ferquency_button.clicked(click):
 			continue
 		elif specific_mass_button.clicked(click):
