@@ -124,17 +124,6 @@ class Energy:
 				new_value = self.cal_to_Btu()
 			elif chosen_buttons[1] == self.to_ft_lbf_button:
 				new_value = self.cal_to_ft_lbf()
-			else:
-				new_value = self.get_value()
-		elif chosen_buttons[0] == self.from_in_Hg_button:
-			if chosen_buttons[1] == self.to_J_button:
-				new_value = self.in_Hg_to_J()
-			elif chosen_buttons[1] == self.to_Btu_button:
-				new_value = self.in_Hg_to_Btu()
-			elif chosen_buttons[1] == self.to_cal_button:
-				new_value = self.in_Hg_to_cal()
-			else:
-				new_value = self.get_value()
 
 		return new_value
 

@@ -126,15 +126,6 @@ class Force:
 				new_value = self.dyne_to_lbf()
 			else:
 				new_value = self.get_value()
-		elif chosen_buttons[0] == self.from_in_Hg_button:
-			if chosen_buttons[1] == self.to_N_button:
-				new_value = self.in_Hg_to_N()
-			elif chosen_buttons[1] == self.to_kgf_button:
-				new_value = self.in_Hg_to_kgf()
-			elif chosen_buttons[1] == self.to_dyne_button:
-				new_value = self.in_Hg_to_dyne()
-			else:
-				new_value = self.get_value()
 
 		return new_value
 
