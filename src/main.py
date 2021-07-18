@@ -25,6 +25,9 @@ def execute_chosen_conversion(unit):
 	while True:
 		if chosen_buttons == None:
 			break
+		elif chosen_buttons == "restart":
+			execute_chosen_conversion(unit)
+			break
 		interaction = unit.interact()
 		if interaction == "convert_button":
 			new_value = unit.convert(chosen_buttons)

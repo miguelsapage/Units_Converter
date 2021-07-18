@@ -57,7 +57,10 @@ class Energy:
 				for button in self.to_buttons:
 					button.activate()
 				self.value.setText("")
-				self.result.undraw()
+				try:
+					self.result.undraw()
+				except:
+					pass
 				return "clear_button"
 			elif self.quit_button.clicked(click):
 				self.win.close()
@@ -84,6 +87,13 @@ class Energy:
 			elif self.quit_button.clicked(click):
 				self.win.close()
 				return None
+			elif self.clean_button.clicked(click):
+				for button in self.from_buttons:
+					button.activate()
+				for button in self.to_buttons:
+					button.activate()
+				self.value.setText("")
+				return "restart"
 			if len(chosen_buttons) == 2:
 				break
 
@@ -124,6 +134,8 @@ class Energy:
 				new_value = self.cal_to_Btu()
 			elif chosen_buttons[1] == self.to_ft_lbf_button:
 				new_value = self.cal_to_ft_lbf()
+			else:
+				new_value = self.get_value()
 
 		return new_value
 

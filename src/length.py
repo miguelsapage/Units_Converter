@@ -65,7 +65,10 @@ class Length:
 				for button in self.to_buttons:
 					button.activate()
 				self.value.setText("")
-				self.result.undraw()
+				try:
+					self.result.undraw()
+				except:
+					pass
 				return "clear_button"
 			elif self.quit_button.clicked(click):
 				self.win.close()
@@ -92,6 +95,13 @@ class Length:
 			elif self.quit_button.clicked(click):
 				self.win.close()
 				return None
+			elif self.clean_button.clicked(click):
+				for button in self.from_buttons:
+					button.activate()
+				for button in self.to_buttons:
+					button.activate()
+				self.value.setText("")
+				return "restart"
 			if len(chosen_buttons) == 2:
 				break
 
